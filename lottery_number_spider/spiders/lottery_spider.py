@@ -21,7 +21,7 @@ class NewsSpider(scrapy.Spider):
             print(num, name)
             items = LotteryNumberSpiderItem()
             if name not in items:
-                no, date = html_array[0].select('div.lotto-no')[0].text.replace("\n", "").replace("第", "").replace("期", ",").split(',')
+                no, date = html_array[num].select('div.lotto-no')[0].text.replace("\n", "").replace("第", "").replace("期", ",").split(',')
                 
                 items['name_cht'] = lottery_cht_names[num]
                 items['name_en'] = name
