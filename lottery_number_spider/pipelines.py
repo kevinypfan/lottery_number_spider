@@ -28,11 +28,11 @@ class MongoDBPipeline:
     def insert_lottery(self, item):
         item = dict(item)
 
-        exist_lottery = self.db.lottery.find({'name_en': item['name_en'], 'no': item['no']}).limit(1).count() > 0
+        exist_lottery = self.db[item['name_en']].find({'name_en': item['name_en'], 'no': item['no']}).limit(1).count() > 0
         if exist_lottery:
             pass
         else:
-            self.db.lottery.insert_one(item)
+            self.db[item['name_en']].insert_one(item)
         
 
     def close_spider(self, spider):
