@@ -26,7 +26,7 @@ class NewsSpider(scrapy.Spider):
                 items['name_cht'] = lottery_cht_names[num]
                 items['name_en'] = name
                 items['nums'] = list()
-                items['image'] = html_array[0].select('img')[0]['src']
+                items['image'] = html_array[num].select('img')[0]['src']
                 items['no'] = no
                 items['date'] = date
                 
